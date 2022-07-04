@@ -17,10 +17,10 @@ import { Context } from "../../SharedState"
 
 function NavBar() {
 
-    const { state } = useContext(Context);
+    const { states, actions } = useContext(Context);
 
     //Segrego los coches que están disponibles
-    let vehiculosDisponibles = state.filter(coche => coche.disponible === 1);
+    let vehiculosDisponibles = states.cars.filter(coche => coche.disponible === 1);
 
     //Mediante el método filter, segrego los coches que son de alquiler o venta
     let vehiculosArrayAlquiler = vehiculosDisponibles.filter(coche => coche.alquiler === 1);

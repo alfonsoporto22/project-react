@@ -3,40 +3,47 @@ import NavBar from './components/NavBar/NavBar';
 import IndividualPage from './components/IndividualPage/IndividualPage';
 import CarCarrousels from './components/CarCarrousels/CarCarrousels';
 import MainForm from './components/MainForm/MainForm';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import LogIn from './components/LogIn/LogIn'
 import { Route, Routes } from 'react-router-dom';
+
 import { useContext, useEffect } from "react"
 import { Context } from "./SharedState"
-import { get } from "./aux_api";
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 
+import { useNavigate } from "react-router-dom";
+
+
 function App() {
 
-  const ruta = "http://127.0.0.1:5500/02_01_frontend_clientes/src/img/";
 
-  const { state, actions } = useContext(Context);
+  const { states, actions } = useContext(Context);
 
   useEffect(
     () => {
-      getCars()
+      actions.getAllCars()
     },
     []
   )
-
-  /*Llamada al fetch de get donde se incluyen los datos de todos los coches de la base
-  de datos en el setState*/
-  function getCars() {
-    get("http://localhost:3000/api" + "/allCoches/").then(
-      data => actions.setState(data)
-    )
+  const navigate = useNavigate();
+  async function clickHandler(event) {
+    event.preventDefault()
+    navigate("/backoffice/");
+    window.location.reload(false);
+    
   }
 
   return (
     <>
       <Stack direction="horizontal">
         <h1 className="mx-auto"><Link to={"/"}>Concesionario Vioño</Link></h1>
+
+        <Button className="ms-auto" onClick={clickHandler}>Empleados</Button>
+
         <Link to={"/login"}><Button className="ms-auto">Usuarios</Button></Link>
       </Stack>
       <NavBar />

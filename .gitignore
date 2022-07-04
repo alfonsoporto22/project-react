@@ -5,6 +5,7 @@ node_modules/
 /.pnp
 .pnp.js
 /vehicleDealer.db
+.env
 
 # testing
 /coverage

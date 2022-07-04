@@ -4,10 +4,10 @@ import { Context } from "../../SharedState"
 
 function CarCarrousels({ vehiculos }) {
 
-    const { state } = useContext(Context);
+    const { states, actions } = useContext(Context);
 
     //Mediante el método filter, segrego los coches que están disponibles para mostrar en el carrusel
-    const cochesDisponibles = state.filter(element => element.disponible === 1);
+    const cochesDisponibles = states.cars.filter(element => element.disponible === 1);
 
     //Segrego solo los coches que estén de OFERTA
     const cochesOfertas = cochesDisponibles.filter(element => element.oferta === 1);

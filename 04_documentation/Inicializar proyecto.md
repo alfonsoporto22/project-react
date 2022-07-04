@@ -10,6 +10,8 @@ Para iniciar fotos: en "public/index.html" darle a "Go Live"
 
 Para iniciar las fotos: en index.html darle a Go Live
 
+Si no está el router react instalado: npm install react-router-dom@6
+
 # Backend
 
 Express: 
@@ -19,5 +21,5 @@ Inicializarlo: F5 (con NodeJs)
 
 SQLite3:
 
-Istalarlo: install sqlite3
+Istalarlo: npm install sqlite3
 Inicializarla: F5 (con NodeJs)
